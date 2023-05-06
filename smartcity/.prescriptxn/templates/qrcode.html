@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    {% include 'head.html' %}
+
+    <body>
+        {% include 'nav.html' %}
+      
+        <div class="d-flex justify-content-center" id="qrBox">
+            <div class="card " style="width: 18rem;">
+                <div id="qrcode"></div>
+                <script type="text/javascript">
+                    var data = "Name: " + "{{ firstName }}" + " " + "{{ lastName }}" + "\nBirthday: " + "{{birthday}}" + "\nEmail: " + "{{email}}";
+                
+                    var qrcode = new QRCode(document.getElementById("qrcode"), {
+                        width: 200,
+                        height: 200,
+                        colorDark: "#000000",
+                        colorLight: "#ffffff",
+                        correctLevel: QRCode.CorrectLevel.H
+                    });
+                    qrcode.makeCode(data);
+                </script>
+                <div class="card-body">
+                    <img src="static/img/prescriptxn-high-resolution-logo-color-on-transparent-background.png" style="height: 120px; width: 100%;" class="img-thumbnail" >
+                  
+                    <div class="d-flex justify-content-center">
+                        <a href="/" class="btn btn-primary">Go Back</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+ 
+    </body>
+
+</html>
